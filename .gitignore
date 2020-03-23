@@ -36,3 +36,9 @@
 ehthumbs.db
 Thumbs.db
 .gitignore.txt
+
+# Other
+######################
+/vendor
+.env
+.phpunit.result.cache
