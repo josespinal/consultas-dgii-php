@@ -1,10 +1,13 @@
 <?php
 namespace DGII\Consultas;
 
+use DomDocument;
+use DomXpath;
+
 class Rnc
 {
 
-	private $_fileName = __DIR__.'/../../../../config.json';
+	private $_fileName = __DIR__.'/../../../config.json';
 	private $_dataJson;
 	private $_url;
 	private $_contentType;
