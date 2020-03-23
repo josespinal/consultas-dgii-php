@@ -3,6 +3,7 @@ namespace DGII\Consultas;
 
 use DomDocument;
 use DomXpath;
+use DGII\Consultas\Helpers\Validate;
 
 class Rnc
 {
@@ -10,6 +11,7 @@ class Rnc
 	private $dataJson;
 	private $url;
 	private $contentType;
+	private $validator;
 
 	public function __construct()
 	{
@@ -22,12 +24,15 @@ class Rnc
 
 		$this->contentType = $this->dataJson{'request_headers'}{'Content-Type'};
 		$this->url = $this->dataJson{'url'} . '/' . $this->dataJson{'web_resource'};
+		$this->validator = new Validate();
 	}
 
-	private function getResource()
+	private function getResource($rnc)
 	{
 		$fieldStr = '';
 		$fields = '';
+		$this->dataJson{'request_parameters'}{'txtRncCed'} = $rnc;
+
 		foreach ($this->dataJson{'request_parameters'} as $key => $value) {
 			$fieldStr .= $key . '=' . $value . '&';
 		}
@@ -42,7 +47,7 @@ class Rnc
 		curl_close($ch);
 
 		if($httpStatus != 200)
-			die( json_encode( array( 'error_message' => $this->dataJson{'http_error_string'}) ) );
+			return json_encode( array( 'error_message' => $this->dataJson{'http_error_string'}));
 
 		$dom = new DomDocument();
 		$dom->loadHtml($schemeHtml);
@@ -51,7 +56,7 @@ class Rnc
 		$tr = $xpath->query('//span[@id="lblMsg"]')->item(0);
 
 		if ($tr->textContent)
-			die( json_encode( array( 'error_message' => $this->dataJson{'not_found_string'}) ) );
+			return json_encode( array( 'error_message' => $this->dataJson{'not_found_string'}));
 
 		$tr = $xpath->query('//tr[@class="GridItemStyle"]')->item(0);
 
@@ -84,9 +89,12 @@ class Rnc
 		return json_encode($rncValue, JSON_FORCE_OBJECT);
 	}
 
-	public function getRNC($doc)
+	public function getRNC($rnc)
 	{
-		$this->dataJson{'request_parameters'}{'txtRncCed'} = $doc;
-		return $this->getResource();
+		if (!$this->validator->validateRnc($rnc)){
+			return json_encode( array( 'error_message' => $this->dataJson{'not_valid_string'}));
+		}
+
+		return $this->getResource($rnc);
 	}
 }
