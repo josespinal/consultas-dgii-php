@@ -1,0 +1,23 @@
+{
+  "name": "josespinal/consultas-dgii",
+  "description": "Requests wrapper for DGII (tax office) in the Dominican Republic",
+  "require": {
+    "php": ">=5.2"
+  },
+  "keywords": ["dgii", "tax", "impuestos", "rnc", "ncf"],
+  "homepage": "https://github.com/josespinal/consultas-dgii-php",
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "José Espinal",
+      "homepage": "http://industria.com.do",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DGII\\Consultas\\": "src/"
+    }
+  }
+}

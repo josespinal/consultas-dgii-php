@@ -1,15 +1,9 @@
 <?php
+namespace DGII\Consultas;
 
-/**
- * @Name: consultar DGII 
- * @author :Jose Ramon De Los Santos Oviedo
- * @version: 0.0.3
- * @date : 2013-11-02
- *
- **/
 class Rnc
 {
-	private $_fileName = 'include/config.json';
+	private $_fileName = 'config.json';
 	private $_dataJson;
 	private $_url;
 	private $_contentType;
@@ -32,7 +26,7 @@ class Rnc
 		$fieldStr = '';
 		$fields = '';
 		foreach ($this->_dataJson{'request_parameters'} as $key => $value) {
-			$fieldStr .= $key . '=' . $value . '&'; 
+			$fieldStr .= $key . '=' . $value . '&';
 		}
 
 		$ch = curl_init();
@@ -61,12 +55,12 @@ class Rnc
 		foreach ($tr->childNodes as $node) {
 			$rncValue[] = $node->nodeValue;
 		}
-		
+
 		if (!headers_sent()) {
 			header('Content-type: text/json');
 			header('Content-type: application/json');
 		}
-		
+
 		$keys = array(
 			'rnc',
 			'nombre',
