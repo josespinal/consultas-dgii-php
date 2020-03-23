@@ -6,35 +6,34 @@ use DomXpath;
 
 class Rnc
 {
-
-	private $_fileName = __DIR__.'/../../../config.json';
-	private $_dataJson;
-	private $_url;
-	private $_contentType;
+	private $fileName = __DIR__.'/../../../config.json';
+	private $dataJson;
+	private $url;
+	private $contentType;
 
 	public function __construct()
 	{
-		if (!file_exists($this->_fileName))
+		if (!file_exists($this->fileName))
 			die('El archivo config no existe');
 
-		$handle = fopen($this->_fileName, 'r');
-		$this->_dataJson = json_decode(fread($handle, filesize($this->_fileName)), true);
+		$handle = fopen($this->fileName, 'r');
+		$this->dataJson = json_decode(fread($handle, filesize($this->fileName)), true);
 		fclose($handle);
 
-		$this->_contentType = $this->_dataJson{'request_headers'}{'Content-Type'};
-		$this->_url = $this->_dataJson{'url'} . '/' . $this->_dataJson{'web_resource'};
+		$this->contentType = $this->dataJson{'request_headers'}{'Content-Type'};
+		$this->url = $this->dataJson{'url'} . '/' . $this->dataJson{'web_resource'};
 	}
 
-	private function _getResource()
+	private function getResource()
 	{
 		$fieldStr = '';
 		$fields = '';
-		foreach ($this->_dataJson{'request_parameters'} as $key => $value) {
+		foreach ($this->dataJson{'request_parameters'} as $key => $value) {
 			$fieldStr .= $key . '=' . $value . '&';
 		}
 
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $this->_url);
+		curl_setopt($ch, CURLOPT_URL, $this->url);
 		curl_setopt($ch, CURLOPT_POST, count(explode('&', $fieldStr)));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, rtrim($fieldStr, '&'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -43,7 +42,7 @@ class Rnc
 		curl_close($ch);
 
 		if($httpStatus != 200)
-			die( json_encode( array( 'error_message' => $this->_dataJson{'http_error_string'}) ) );
+			die( json_encode( array( 'error_message' => $this->dataJson{'http_error_string'}) ) );
 
 		$dom = new DomDocument();
 		$dom->loadHtml($schemeHtml);
@@ -52,7 +51,7 @@ class Rnc
 		$tr = $xpath->query('//span[@id="lblMsg"]')->item(0);
 
 		if ($tr->textContent)
-			die( json_encode( array( 'error_message' => $this->_dataJson{'not_found_string'}) ) );
+			die( json_encode( array( 'error_message' => $this->dataJson{'not_found_string'}) ) );
 
 		$tr = $xpath->query('//tr[@class="GridItemStyle"]')->item(0);
 
@@ -85,9 +84,9 @@ class Rnc
 		return json_encode($rncValue, JSON_FORCE_OBJECT);
 	}
 
-	public function queryDoc($doc)
+	public function getRNC($doc)
 	{
-		$this->_dataJson{'request_parameters'}{'txtRncCed'} = $doc;
-		return $this->_getResource();
+		$this->dataJson{'request_parameters'}{'txtRncCed'} = $doc;
+		return $this->getResource();
 	}
 }
