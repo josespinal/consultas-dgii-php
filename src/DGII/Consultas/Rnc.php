@@ -74,8 +74,14 @@ class Rnc
 			'estatus'
 		);
 
+		# Clean the data received before combining with keys
 		array_pop($rncValue);
+		unset($rncValue[0]);
+
+		# Add keys to data
 		$rncValue = array_combine($keys, $rncValue);
+
+		# Return JSON
 		return json_encode($rncValue, JSON_FORCE_OBJECT);
 	}
 
