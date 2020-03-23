@@ -15,5 +15,6 @@
         "btnBuscaRncCed": "Buscar"
     },
     "not_found_string": "RNC o Cedula no existe",
+    "not_valid_string": "RNC o Cedula no validos",
     "http_error_string": "No fue posible conectarse al servicio"
 }
