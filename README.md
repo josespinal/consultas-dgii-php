@@ -1,6 +1,7 @@
 # DGII Consultas PHP
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/josespinal/consultas-dgii)
+[![Latest Stable Version](https://poser.pugx.org/josespinal/consultas-dgii/v/stable)](https://packagist.org/packages/josespinal/consultas-dgii)
+[![Latest Unstable Version](https://poser.pugx.org/josespinal/consultas-dgii/v/unstable)](https://packagist.org/packages/josespinal/consultas-dgii)
 [![Total Downloads](https://poser.pugx.org/josespinal/consultas-dgii/downloads)](https://packagist.org/packages/josespinal/consultas-dgii)
 [![License](https://poser.pugx.org/josespinal/consultas-dgii/license)](https://packagist.org/packages/josespinal/consultas-dgii)
 [![composer.lock](https://poser.pugx.org/josespinal/consultas-dgii/composerlock)](https://packagist.org/packages/josespinal/consultas-dgii)
