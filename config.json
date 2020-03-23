@@ -1,6 +1,6 @@
 {
-    "url": "http://www.dgii.gov.do/app/WebApps/Consultas/",
-    "web_resource": "rnc/RncWeb.aspx",
+    "url": "https://www.dgii.gov.do/app/WebApps/Consultas/",
+    "web_resource": "RNC/RncWeb.aspx",
     "request_cookies": {},
     "request_headers": {
         "Content-Type": "application/x-www-form-urlencoded"
