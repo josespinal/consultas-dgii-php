@@ -35,7 +35,7 @@ class Rnc
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $this->_url);
-		curl_setopt($ch, CURLOPT_POST, count($fieldStr));
+		curl_setopt($ch, CURLOPT_POST, count(explode('&', $fieldStr)));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, rtrim($fieldStr, '&'));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$schemeHtml = curl_exec($ch);
