@@ -2,7 +2,8 @@
   "name": "josespinal/consultas-dgii",
   "description": "Requests wrapper for DGII (tax office) in the Dominican Republic",
   "require": {
-    "php": ">=5.2"
+    "php": ">=5.2",
+    "josespinal/consultas-dgii": "*"
   },
   "keywords": ["dgii", "tax", "impuestos", "rnc", "ncf"],
   "homepage": "https://github.com/josespinal/consultas-dgii-php",
@@ -17,9 +18,15 @@
   ],
   "autoload": {
     "psr-4": {
-      "DGII\\Consultas\\": "src/"
-    }
+      "DGII\\": "src/"
+    },
+    "classmap": [
+      "src/"
+    ]
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
 }
