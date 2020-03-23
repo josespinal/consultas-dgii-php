@@ -3,7 +3,8 @@ namespace DGII\Consultas;
 
 class Rnc
 {
-	private $_fileName = 'config.json';
+
+	private $_fileName = __DIR__.'/../../../../config.json';
 	private $_dataJson;
 	private $_url;
 	private $_contentType;
