@@ -14,6 +14,6 @@
         "rbtnlTipoBusqueda": "0",
         "btnBuscaRncCed": "Buscar"
     },
-    "not_found_string": "Rnc o Cedula no existe",
+    "not_found_string": "RNC o Cedula no existe",
     "http_error_string": "No fue posible conectarse al servicio"
 }
