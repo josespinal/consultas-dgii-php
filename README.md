@@ -1,7 +1,9 @@
 # DGII Consultas PHP
 
 [![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/josespinal/consultas-dgii)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/josespinal/consultas-dgii)
+[![Total Downloads](https://poser.pugx.org/josespinal/consultas-dgii/downloads)](https://packagist.org/packages/josespinal/consultas-dgii)
+[![License](https://poser.pugx.org/josespinal/consultas-dgii/license)](https://packagist.org/packages/josespinal/consultas-dgii)
+[![composer.lock](https://poser.pugx.org/josespinal/consultas-dgii/composerlock)](https://packagist.org/packages/josespinal/consultas-dgii)
 
 Wrapper escrito en PHP para consultas al portal de DGII.
 
