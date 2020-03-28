@@ -16,7 +16,7 @@ Si quieres colaborar en el proyecto, escribeme un mensaje en Github.
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability, please send a message throught GitHub or open an Issue. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability, please send a message through GitHub or open an Issue. All security vulnerabilities will be promptly addressed.
 
 ## License
 
