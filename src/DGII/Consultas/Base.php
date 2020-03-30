@@ -13,8 +13,9 @@ class Base
 
   public function __construct()
 	{
-		if (!file_exists($this->fileName))
+		if (!file_exists($this->fileName)) {
 			die('El archivo config no existe');
+		}
 
 		$handle = fopen($this->fileName, 'r');
 		$this->dataJson = json_decode(fread($handle, filesize($this->fileName)), true);
