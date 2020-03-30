@@ -14,9 +14,6 @@ class Validate
     $length = strlen($rnc);
     $number = is_numeric($rnc);
 
-    // echo "Number: " . $number;
-    // echo "Length: " . $length;
-
     if ($number && ($length == 9 || $length == 11)) {
       return true;
     }
