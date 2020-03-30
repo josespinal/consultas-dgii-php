@@ -8,8 +8,6 @@
 
 Wrapper escrito en PHP para consultas al portal de DGII.
 
-Por el momento solo consultas de RNC. Estoy trabajando en consultas de NCF.
-
 ## Contributing
 
 Si quieres colaborar en el proyecto, escribeme un mensaje en Github.
