@@ -1,18 +1,29 @@
 {
-    "url": "https://www.dgii.gov.do/app/WebApps/Consultas/",
-    "web_resource": "RNC/RncWeb.aspx",
-    "request_cookies": {},
-    "request_headers": {
-        "Content-Type": "application/x-www-form-urlencoded"
+    "rnc": {
+        "url": "https://www.dgii.gov.do/app/WebApps/Consultas/",
+        "web_resource": "RNC/RncWeb.aspx",
+        "request_cookies": {},
+        "request_headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "request_parameters": {
+            "__EVENTTARGET": "",
+            "__EVENTARGUMENT": "",
+            "__LASTFOCUS": "",
+            "__VIEWSTATE": "/wEPDwUKMTY4ODczNzk2OA9kFgICAQ9kFgQCAQ8QZGQWAWZkAg0PZBYCAgMPPCsACwBkZHTpAYYQQIXs/JET7TFTjBqu3SYU",
+            "__EVENTVALIDATION": "/wEWBgKl57TuAgKT04WJBAKM04WJBAKDvK/nCAKjwtmSBALGtP74CtBj1Z9nVylTy4C9Okzc2CBMDFcB",
+            "rbtnlTipoBusqueda": "0",
+            "btnBuscaRncCed": "Buscar"
+        }
     },
-    "request_parameters": {
-        "__EVENTTARGET": "",
-        "__EVENTARGUMENT": "",
-        "__LASTFOCUS": "",
-        "__VIEWSTATE": "/wEPDwUKMTY4ODczNzk2OA9kFgICAQ9kFgQCAQ8QZGQWAWZkAg0PZBYCAgMPPCsACwBkZHTpAYYQQIXs/JET7TFTjBqu3SYU",
-        "__EVENTVALIDATION": "/wEWBgKl57TuAgKT04WJBAKM04WJBAKDvK/nCAKjwtmSBALGtP74CtBj1Z9nVylTy4C9Okzc2CBMDFcB",
-        "rbtnlTipoBusqueda": "0",
-        "btnBuscaRncCed": "Buscar"
+    "ncf": {
+        "url": "https://dgii.gov.do/app/WebApps/ConsultasWeb2/ConsultasWeb/consultas/",
+        "web_resource": "ncf.aspx",
+        "request_parameters": {
+            "formAnchor": "Buscar",
+            "rncFieldName": "ctl00$cphMain$txtRNC",
+            "ncfFieldName": "ctl00$cphMain$txtNCF"
+        }
     },
     "not_found_string": "RNC o Cedula no existe",
     "not_valid_string": "RNC o Cedula no validos",
