@@ -1,30 +1,17 @@
 <?php
 namespace DGII\Consultas;
 
+use DGII\Consultas\Base;
 use DomDocument;
 use DomXpath;
-use DGII\Consultas\Helpers\Validate;
 
-class Rnc
+class Rnc extends Base
 {
-	private $fileName = __DIR__.'/../../../config.json';
-	private $dataJson;
-	private $url;
-	private $contentType;
-	private $validator;
-
 	public function __construct()
 	{
-		if (!file_exists($this->fileName))
-			die('El archivo config no existe');
-
-		$handle = fopen($this->fileName, 'r');
-		$this->dataJson = json_decode(fread($handle, filesize($this->fileName)), true);
-		fclose($handle);
-
-		$this->contentType = $this->dataJson{'request_headers'}{'Content-Type'};
-		$this->url = $this->dataJson{'url'} . '/' . $this->dataJson{'web_resource'};
-		$this->validator = new Validate();
+		parent::__construct();
+		$this->url = $this->dataJson{'rnc'}{'url'} . '/' . $this->dataJson{'rnc'}{'web_resource'};
+		$this->contentType = $this->dataJson{'rnc'}{'request_headers'}{'Content-Type'};
 	}
 
 	private function getResource($query)
