@@ -22,7 +22,7 @@ class Ncf extends Base
   }
 
   private function getResource(string $rnc, string $ncf)
-	{
+  {
     $client = new \Goutte\Client();
 
     $crawler = $client->request('GET', $this->url);
@@ -36,27 +36,27 @@ class Ncf extends Base
 
     # Keys for data
     $keys = array(
-			'rnc',
-			'nombre',
-			'tipo_ncf',
-			'ncf',
-			'estatus',
-			'fecha_valido'
+      'rnc',
+      'nombre',
+      'tipo_ncf',
+      'ncf',
+      'estatus',
+      'fecha_valido'
     );
 
     # Add keys to data
-		$data = array_combine($keys, $data);
+    $data = array_combine($keys, $data);
 
     # Return JSON
     return json_encode($data);
   }
 
   public function getNCF($rnc, $ncf)
-	{
-		if (!$this->validator->validateRnc($rnc)){
-			return json_encode( array( 'error_message' => $this->dataJson{'not_valid_string'}));
-		}
+  {
+    if (!$this->validator->validateRnc($rnc)){
+      return json_encode( array( 'error_message' => $this->dataJson{'not_valid_string'}));
+    }
 
-		return $this->getResource($rnc, $ncf);
-	}
+    return $this->getResource($rnc, $ncf);
+  }
 }
