@@ -18,9 +18,9 @@ class Rnc extends Base
 	{
 		$fieldStr = '';
 		$fields = '';
-		$this->dataJson{'request_parameters'}{'txtRncCed'} = $query;
+		$this->dataJson{'rnc'}{'request_parameters'}{'txtRncCed'} = $query;
 
-		foreach ($this->dataJson{'request_parameters'} as $key => $value) {
+		foreach ($this->dataJson{'rnc'}{'request_parameters'} as $key => $value) {
 			$fieldStr .= $key . '=' . $value . '&';
 		}
 
