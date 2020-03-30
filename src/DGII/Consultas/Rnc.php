@@ -27,11 +27,11 @@ class Rnc
 		$this->validator = new Validate();
 	}
 
-	private function getResource($rnc)
+	private function getResource($query)
 	{
 		$fieldStr = '';
 		$fields = '';
-		$this->dataJson{'request_parameters'}{'txtRncCed'} = $rnc;
+		$this->dataJson{'request_parameters'}{'txtRncCed'} = $query;
 
 		foreach ($this->dataJson{'request_parameters'} as $key => $value) {
 			$fieldStr .= $key . '=' . $value . '&';
@@ -89,7 +89,7 @@ class Rnc
 		return json_encode($rncValue, JSON_FORCE_OBJECT);
 	}
 
-	public function getRNC($rnc)
+	public function getByRNC($rnc)
 	{
 		if (!$this->validator->validateRnc($rnc)){
 			return json_encode( array( 'error_message' => $this->dataJson{'not_valid_string'}));
