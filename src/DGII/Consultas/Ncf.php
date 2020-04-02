@@ -45,7 +45,11 @@ class Ncf extends Base
     );
 
     # Add keys to data
-    $data = array_combine($keys, $data);
+    if (count($data) > 0) {
+      $data = array_combine($keys, $data);
+    } else {
+      $data = false;
+    }
 
     # Return JSON
     return json_encode($data);
@@ -53,8 +57,10 @@ class Ncf extends Base
 
   public function getNCF($rnc, $ncf)
   {
-    if (!$this->validator->validateRnc($rnc)){
-      return json_encode( array( 'error_message' => $this->dataJson{'not_valid_string'}));
+    $validation = $this->validator->validate($rnc, $ncf, true, true);
+
+    if (array_key_exists('errors', $validation)) {
+      return json_encode( $validation );
     }
 
     return $this->getResource($rnc, $ncf);
