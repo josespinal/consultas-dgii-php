@@ -1,4 +1,5 @@
 <?php
+
 namespace DGII\Consultas\Helpers;
 
 use DGII\Consultas\Helpers\Config;
@@ -14,8 +15,11 @@ class Validate
     $length = strlen($rnc);
     $number = is_numeric($rnc);
 
-    if ($number && ($length == 9 || $length == 11)) {
-      return true;
+        if ($number && ($length == 9 || $length == 11)) {
+            return true;
+        }
+
+        return false;
     }
 
     return false;

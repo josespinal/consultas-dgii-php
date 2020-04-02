@@ -1,4 +1,5 @@
 <?php
+
 namespace DGII\Consultas;
 
 use DGII\Consultas\Helpers\Config;

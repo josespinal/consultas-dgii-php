@@ -1,6 +1,7 @@
 <?php
-use PHPUnit\Framework\TestCase;
+
 use DGII\Consultas\Rnc;
+use PHPUnit\Framework\TestCase;
 
 // class RncTest extends TestCase
 // {
@@ -15,5 +16,5 @@ use DGII\Consultas\Rnc;
 
 $consulta = new Rnc();
 
-echo $consulta->queryDoc('131233351') . "\n"; // Rnc valido Test OK
+echo $consulta->queryDoc('131233351')."\n"; // Rnc valido Test OK
 echo $consulta->queryDoc('00543266297'); // cedula Fail
