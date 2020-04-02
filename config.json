@@ -14,7 +14,9 @@
             "__EVENTVALIDATION": "/wEWBgKl57TuAgKT04WJBAKM04WJBAKDvK/nCAKjwtmSBALGtP74CtBj1Z9nVylTy4C9Okzc2CBMDFcB",
             "rbtnlTipoBusqueda": "0",
             "btnBuscaRncCed": "Buscar"
-        }
+        },
+        "not_found_string": "RNC o Cédula no existe.",
+        "not_valid_string": "RNC o Cédula no válido."
     },
     "ncf": {
         "url": "https://dgii.gov.do/app/WebApps/ConsultasWeb2/ConsultasWeb/consultas/",
@@ -23,9 +25,9 @@
             "formAnchor": "Buscar",
             "rncFieldName": "ctl00$cphMain$txtRNC",
             "ncfFieldName": "ctl00$cphMain$txtNCF"
-        }
+        },
+        "not_found_string": "NCF no existe.",
+        "not_valid_string": "NCF no válido."
     },
-    "not_found_string": "RNC o Cedula no existe",
-    "not_valid_string": "RNC o Cedula no validos",
-    "http_error_string": "No fue posible conectarse al servicio"
+    "http_error_string": "No fue posible conectarse al servicio."
 }
