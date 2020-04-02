@@ -15,11 +15,8 @@ class Validate
     $length = strlen($rnc);
     $number = is_numeric($rnc);
 
-        if ($number && ($length == 9 || $length == 11)) {
-            return true;
-        }
-
-        return false;
+    if ($number && ($length == 9 || $length == 11)) {
+        return true;
     }
 
     return false;
@@ -51,12 +48,6 @@ class Validate
     $valid = true;
     $config = new Config;
     $configData = $config->dataJson;
-
-    if (!$this->validateRnc($rnc)) {
-      $valid = false;
-
-      $errors['errors'][] = $configData{'rnc'}{'not_valid_string'};
-    }
 
     if ($validateNcf == true) {
       $valid = false;

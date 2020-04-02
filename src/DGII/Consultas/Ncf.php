@@ -60,12 +60,6 @@ class Ncf extends Base
       return json_encode( $validation );
     }
 
-    public function getNCF($rnc, $ncf)
-    {
-        if (!$this->validator->validateRnc($rnc)) {
-            return json_encode(['error_message' => $this->dataJson['not_valid_string']]);
-        }
-
-        return $this->getResource($rnc, $ncf);
-    }
+    return $this->getResource($rnc, $ncf);
+  }
 }
