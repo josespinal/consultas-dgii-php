@@ -68,7 +68,7 @@ class Rnc extends Base
 
         // Clean the data received before combining with keys
         array_pop($rncValue);
-        unset($rncValue[0]);
+        // unset($rncValue[0]);
 
         // Add keys to data
         $rncValue = array_combine($keys, $rncValue);
