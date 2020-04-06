@@ -53,7 +53,7 @@ class Validate
       $valid = false;
 
       if ($this->validateNcf($ncf) == false) {
-        $errors['errors'][] = $configData{'ncf'}{'not_valid_string'};
+        $errors['errors'] = $configData{'ncf'}{'not_valid_string'};
       }
     }
 

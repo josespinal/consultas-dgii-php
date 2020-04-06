@@ -1,5 +1,4 @@
 <?php
-
 namespace DGII\Consultas;
 
 use DomDocument;
@@ -34,7 +33,7 @@ class Rnc extends Base
         curl_close($ch);
 
         if ($httpStatus != 200) {
-            return json_encode(['error_message' => $this->dataJson['http_error_string']]);
+            return json_encode(['error_message' => $this->dataJson['rnc']['http_error_string']]);
         }
 
         $dom = new DomDocument();
@@ -44,7 +43,7 @@ class Rnc extends Base
         $tr = $xpath->query('//span[@id="lblMsg"]')->item(0);
 
         if ($tr->textContent) {
-            return json_encode(['error_message' => $this->dataJson['not_found_string']]);
+            return json_encode(['error_message' => $this->dataJson['rnc']['not_found_string']]);
         }
 
         $tr = $xpath->query('//tr[@class="GridItemStyle"]')->item(0);
@@ -81,7 +80,7 @@ class Rnc extends Base
     public function getByRNC($rnc)
     {
         if (!$this->validator->validateRnc($rnc)) {
-            return json_encode(['error_message' => $this->dataJson['not_valid_string']]);
+            return json_encode(['errors' => $this->dataJson['rnc']['not_valid_string']]);
         }
 
         return $this->getResource($rnc);
